@@ -17,6 +17,7 @@ const getNumber = (text) => {
     return numberFromText;
 }
 
+
 // принимает строку и дополняет спереди задаными символами до нужной длинны
 const expandLength = (text, minLength, extraString ) => {
   if (minLength <= (text.length)) {
