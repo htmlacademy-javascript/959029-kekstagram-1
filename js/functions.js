@@ -1,45 +1,38 @@
 //  берет строку проверяет ее на полиндромность
-let checkPalindrom  = function (palindrom) {
+const checkPalindrom  =  (palindrom) => {
   palindrom = palindrom.replaceAll(' ', '');
   palindrom = palindrom.toLowerCase();
-  let lastIndex = palindrom.leght -1;
-  for ( let i = 0; i <palindrom.lenght / 2; i++)  {
-    if (palindrom[1] !== palindrom[lastIndex - i]) {
+  let lastIndex = palindrom.length - 1 ;
+  for ( let i = 0; i < palindrom.length / 2; i++)  {
+    if (palindrom[i] !== palindrom[lastIndex - i]) {
       return false;
     }
   }
   return true;
 }
 
-
 //  берет строку возвращает строку с цифрами из исходной строки.
-let takeNUmber =function (text) {
-  let numberFromText = '';
-  for (let i = 0; i < text.length - 1; i++) {
-    if (Number.isFinite(text[i])) {
-      numberFromText = numberFromText + text[i];
-    }
-  }
-  return numberFromText;
+const getNumber = (text) => {
+  let numberFromText = text.replace(/[^0-9]/g, '');
+    return numberFromText;
 }
 
+
 // принимает строку и дополняет спереди задаными символами до нужной длинны
-let expandLenght = function (checkingString, minLenght, extraString ) {
-  if (minLenght <= (checkignString.lenght + extraString.lenght)) {
-    return checkignString;
+const expandLength = (text, minLength, extraString ) => {
+  if (minLength <= (text.length)) {
+    return text;
   }
-  let additionLenght = minLenght - checkignString.lenght;
-  extraString = extraString.repeat(Math.round(additionLenght / extraString.lenght));
-  }
-  extraString = extraString.slice(0, (minLenght - 1));
-  let targetString = extraString + checkignString;
+  let additionLength = minLength - text.length;
+  extraString = extraString.repeat(Math.round(additionLength / extraString.length));
+  extraString = extraString.slice(0, (additionLength));
+  let targetString = extraString + text;
   return targetString;
 }
 
-
 //  сравнивает длину строки с заданной
-let checkLenght = function (checkingString, targetLenght) {
-  if ((checkignString.lenght) > targetLenght ) {
+const checkLength =  (text, targetLength) => {
+  if ((text.length) > targetLength ) {
     return false;
   }
   return true;
